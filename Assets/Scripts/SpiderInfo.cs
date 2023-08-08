@@ -10,6 +10,8 @@ public class SpiderInfo : MonoBehaviour
     public bool Grounded { get; private set; }
     public SphereCollider GroundCollider { get; private set; }
 
+    public Vector3 GroundNormal { get; private set; }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +22,10 @@ public class SpiderInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Grounded);
-        SetGrounded();
+        GroundedLogic();
     }
 
-    private void SetGrounded()
+    private void GroundedLogic()
     {
         // We cast ray of length groundCheckDistance down from GroundColliders centre
         // If ray hits then grounded if not then not grounded
@@ -35,12 +36,20 @@ public class SpiderInfo : MonoBehaviour
 
         if (Physics.Raycast(origin, direction, out hit, groundCheckDistance))
         {
-            Grounded = true;
+            //Grounded = true;
+            GroundNormal = hit.normal;
+            Debug.DrawLine(hit.point, hit.point + hit.normal);
             //Debug.DrawRay(origin, direction*groundCheckDistance);
         }
         else
         {
             Grounded = false;
         }
+    }
+
+
+    private void OnCollisionEnter(Collision other)
+    {
+        Grounded = true;
     }
 }

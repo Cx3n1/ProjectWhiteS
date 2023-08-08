@@ -43,9 +43,11 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\StateMachine\SpiderStateMachine\Land.cs" />
      <Compile Include="Assets\Scripts\StateMachine\SpiderStateMachine\Jump.cs" />
+     <Compile Include="Assets\Scripts\SpiderInfo.cs" />
      <Compile Include="Assets\Scripts\StateMachine\SpiderStateMachine\Move.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\StateMachine\SpiderStateMachine\SpiderStateMachine.cs" />
+     <Compile Include="Assets\Scripts\InputActions\PlayerInputActions.cs" />
      <Compile Include="Assets\Scripts\SpiderBrain.cs" />
      <Compile Include="Assets\Scripts\StateMachine\State.cs" />
      <Compile Include="Assets\Scripts\StateMachine\SpiderStateMachine\InAir.cs" />
@@ -53,8 +55,6 @@
      <Compile Include="Assets\Scripts\StateMachine\SpiderStateMachine\SpiderState.cs" />
      <Compile Include="Assets\Scripts\StateMachine\StateMachine.cs" />
      <Compile Include="Assets\Scripts\StateMachine\SpiderStateMachine\Idle.cs" />
-     <Compile Include="Assets\Scripts\InputActions\PlayerInputActions.cs" />
-     <Compile Include="Assets\Scripts\SpiderInfo.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Materials" />
      <Folder Include="Assets\Scripts" />

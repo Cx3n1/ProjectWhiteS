@@ -1,35 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Permissions;
 using UnityEngine;
+using UnityEngine.Animations;
 
 namespace StateMachine.SpiderStateMachine
 {
     public class InAir : SpiderState
     {
-        public override void Start(StateMachine stateMachine)
-        {
-            throw new System.NotImplementedException();
-        }
+        private Rigidbody _spiderBody;
 
         public override void Update()
         {
-            throw new System.NotImplementedException();
+            CheckStateTransition();
         }
 
         public override void FixedUpdate()
         {
-            throw new System.NotImplementedException();
+            
+            // TODO: apply movement
         }
 
         public override void StateEntered(StateMachine stateMachine)
         {
-            throw new System.NotImplementedException();
+            Debug.Log("InAir");
+            base.StateEntered(stateMachine);
+            SSM.SpiderBody.useGravity = true;
+
         }
 
         public override void StateExited()
         {
-            throw new System.NotImplementedException();
+            base.StateExited();
+            SSM.SpiderBody.useGravity = false;
         }
+
+
+        private void CheckStateTransition()
+        {
+            if(SSM.Spider.Grounded)
+                SSM.ChangeState(SSM.Land);
+        }
+        
+        
+        
     }
 
 }

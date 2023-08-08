@@ -6,30 +6,25 @@ namespace StateMachine.SpiderStateMachine
 {
     public class Land : SpiderState
     {
-        public override void Start(StateMachine stateMachine)
-        {
-            throw new System.NotImplementedException();
-        }
 
         public override void Update()
         {
-            throw new System.NotImplementedException();
         }
 
         public override void FixedUpdate()
         {
-            throw new System.NotImplementedException();
         }
 
         public override void StateEntered(StateMachine stateMachine)
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Landed");
+            base.StateEntered(stateMachine);
+            SSM.SpiderBody.velocity = Vector3.zero;
+            SSM.SpiderBody.angularVelocity = Vector3.zero;
+            SSM.gameObject.transform.up = SSM.Spider.GroundNormal;
+            SSM.ChangeState(SSM.Idle);
         }
 
-        public override void StateExited()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 
 }
